@@ -65,10 +65,10 @@ NSString *NSStringFromVFKeyboardProperties(VFKeyboardProperties keyboardProperti
 
 @optional
 
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver observeKeyboardWillShowWithProperties:(VFKeyboardProperties)keyboardProperties interfaceOrientationWillChange:(BOOL)interfaceOrientationWillChange;
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver observeKeyboardDidShowWithProperties:(VFKeyboardProperties)keyboardProperties;
+- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardWillShowWithProperties:(VFKeyboardProperties)keyboardProperties interfaceOrientationWillChange:(BOOL)interfaceOrientationWillChange;
+- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardDidShowWithProperties:(VFKeyboardProperties)keyboardProperties;
 
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver observeKeyboardWillHideWithProperties:(VFKeyboardProperties)keyboardProperties;
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver observeKeyboardDidHideWithProperties:(VFKeyboardProperties)keyboardProperties;
+- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardWillHideWithProperties:(VFKeyboardProperties)keyboardProperties;
+- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardDidHideWithProperties:(VFKeyboardProperties)keyboardProperties;
 
 @end

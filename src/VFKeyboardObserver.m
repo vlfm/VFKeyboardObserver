@@ -176,32 +176,32 @@ VFKeyboardProperties VFKeyboardPropertiesMake(CGSize size,
 
 - (void)notifyKeyboardWillShow {
     for (id<VFKeyboardObserverDelegate> delegate in [_delegates allObjects]) {
-        if ([delegate respondsToSelector:@selector(keyboardObserver:observeKeyboardWillShowWithProperties:interfaceOrientationWillChange:)]) {
-            [delegate keyboardObserver:self observeKeyboardWillShowWithProperties:_lastKeyboardProperties interfaceOrientationWillChange:_interfaceOrientationWillChange];
+        if ([delegate respondsToSelector:@selector(keyboardObserver:keyboardWillShowWithProperties:interfaceOrientationWillChange:)]) {
+            [delegate keyboardObserver:self keyboardWillShowWithProperties:_lastKeyboardProperties interfaceOrientationWillChange:_interfaceOrientationWillChange];
         }
     }
 }
 
 - (void)notifyKeyboardDidShow {
     for (id<VFKeyboardObserverDelegate> delegate in [_delegates allObjects]) {
-        if ([delegate respondsToSelector:@selector(keyboardObserver:observeKeyboardDidShowWithProperties:)]) {
-            [delegate keyboardObserver:self observeKeyboardDidShowWithProperties:_lastKeyboardProperties];
+        if ([delegate respondsToSelector:@selector(keyboardObserver:keyboardDidShowWithProperties:)]) {
+            [delegate keyboardObserver:self keyboardDidShowWithProperties:_lastKeyboardProperties];
         }
     }
 }
 
 - (void)notifyKeyboardWillHide {
     for (id<VFKeyboardObserverDelegate> delegate in [_delegates allObjects]) {
-        if ([delegate respondsToSelector:@selector(keyboardObserver:observeKeyboardWillHideWithProperties:)]) {
-            [delegate keyboardObserver:self observeKeyboardWillHideWithProperties:_lastKeyboardProperties];
+        if ([delegate respondsToSelector:@selector(keyboardObserver:keyboardWillHideWithProperties:)]) {
+            [delegate keyboardObserver:self keyboardWillHideWithProperties:_lastKeyboardProperties];
         }
     }
 }
 
 - (void)notifyKeyboardDidHide {
     for (id<VFKeyboardObserverDelegate> delegate in [_delegates allObjects]) {
-        if ([delegate respondsToSelector:@selector(keyboardObserver:observeKeyboardDidHideWithProperties:)]) {
-            [delegate keyboardObserver:self observeKeyboardDidHideWithProperties:_lastKeyboardProperties];
+        if ([delegate respondsToSelector:@selector(keyboardObserver:keyboardDidHideWithProperties:)]) {
+            [delegate keyboardObserver:self keyboardDidHideWithProperties:_lastKeyboardProperties];
         }
     }
 }

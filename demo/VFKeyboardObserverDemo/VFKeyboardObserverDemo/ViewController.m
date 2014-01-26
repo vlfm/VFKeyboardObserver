@@ -28,7 +28,7 @@
 
 #pragma mark VFKeyboardObserverDelegate
 
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver observeKeyboardWillShowWithProperties:(VFKeyboardProperties)keyboardProperties interfaceOrientationWillChange:(BOOL)interfaceOrientationWillChange {
+- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardWillShowWithProperties:(VFKeyboardProperties)keyboardProperties interfaceOrientationWillChange:(BOOL)interfaceOrientationWillChange {
     NSLog(@"KeyboardWillShowWithProperties: %@, interfaceOrientationWillChange: %@", NSStringFromVFKeyboardProperties(keyboardProperties), (interfaceOrientationWillChange ? @"YES" : @"NO"));
     
     bottomConstraint.constant = keyboardProperties.size.height;
@@ -38,11 +38,11 @@
     }];
 }
 
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver observeKeyboardDidShowWithProperties:(VFKeyboardProperties)keyboardProperties {
+- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardDidShowWithProperties:(VFKeyboardProperties)keyboardProperties {
     NSLog(@"KeyboardDidShowWithProperties: %@", NSStringFromVFKeyboardProperties(keyboardProperties));
 }
 
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver observeKeyboardWillHideWithProperties:(VFKeyboardProperties)keyboardProperties {
+- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardWillHideWithProperties:(VFKeyboardProperties)keyboardProperties {
     NSLog(@"KeyboardWillHideWithProperties: %@", NSStringFromVFKeyboardProperties(keyboardProperties));
     
     bottomConstraint.constant = 0;
@@ -52,7 +52,7 @@
     }];
 }
 
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver observeKeyboardDidHideWithProperties:(VFKeyboardProperties)keyboardProperties {
+- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardDidHideWithProperties:(VFKeyboardProperties)keyboardProperties {
     NSLog(@"KeyboardDidHideWithProperties: %@", NSStringFromVFKeyboardProperties(keyboardProperties));
 }
 
