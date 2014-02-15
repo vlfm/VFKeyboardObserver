@@ -59,6 +59,8 @@ NSString *NSStringFromVFKeyboardProperties(VFKeyboardProperties keyboardProperti
 - (void)animateWithKeyboardProperties:(void(^)())animations;
 - (void)animateWithKeyboardProperties:(void(^)())animations completion:(void (^)(BOOL finished))completion;
 
+/* If keyboard visible (in will- or did- show state), returns keyboard frame converted to view coordinates,
+   otherwise returns zero rect */
 - (CGRect)keyboardFrameInViewCoordinates:(UIView *)view;
 
 @end
