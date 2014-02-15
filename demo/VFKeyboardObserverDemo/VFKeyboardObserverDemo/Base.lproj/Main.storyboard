@@ -79,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="655" y="174"/>
+            <point key="canvasLocation" x="963" y="174"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ghp-FR-GjR">
@@ -89,12 +89,51 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="i0s-hE-wVo"/>
+                        <segue destination="yNX-cA-RL8" kind="relationship" relationship="rootViewController" id="y0F-1G-kYl"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NNp-ht-lOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="187" y="174"/>
+            <point key="canvasLocation" x="-55" y="174"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NdQ-C8-UHL">
+            <objects>
+                <viewController id="yNX-cA-RL8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="939-rO-GiS"/>
+                        <viewControllerLayoutGuide type="bottom" id="A0D-WN-NDr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0CF-UP-NeT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cA-9a-zvp">
+                                <rect key="frame" x="20" y="84" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="QSA-WJ-QDp"/>
+                                    <constraint firstAttribute="height" constant="30" id="Rsi-53-JPZ"/>
+                                </constraints>
+                                <state key="normal" title="Present">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="55t-xu-D6j"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5cA-9a-zvp" firstAttribute="leading" secondItem="0CF-UP-NeT" secondAttribute="leading" constant="20" id="F3C-Pi-UPH"/>
+                            <constraint firstItem="5cA-9a-zvp" firstAttribute="top" secondItem="939-rO-GiS" secondAttribute="bottom" constant="20" id="h4X-X5-VXq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Mpi-kI-hIr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EH3-cg-zoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="439" y="174"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

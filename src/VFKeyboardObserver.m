@@ -100,6 +100,26 @@ VFKeyboardProperties VFKeyboardPropertiesMake(CGRect frame,
     }
 }
 
+- (CGRect)keyboardFrameInViewCoordinates:(UIView *)view {
+    if (self.keyboardXHide) {
+        return CGRectZero;
+    }
+    
+    CGRect viewFrameInWindowCoordinates = [view convertRect:view.bounds toView:nil];
+    if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+        viewFrameInWindowCoordinates = CGRectMake(viewFrameInWindowCoordinates.origin.y,
+                                                  viewFrameInWindowCoordinates.origin.x,
+                                                  viewFrameInWindowCoordinates.size.height,
+                                                  viewFrameInWindowCoordinates.size.width);
+    }
+    
+    CGRect keyboardFrame = self.lastKeyboardProperties.frame;
+    
+    CGFloat keyboardHeightInViewCoordinates = MAX(0, CGRectGetMaxY(viewFrameInWindowCoordinates) - keyboardFrame.origin.y);
+    
+    return CGRectMake(keyboardFrame.origin.x, view.bounds.size.height - keyboardHeightInViewCoordinates, keyboardFrame.size.width, keyboardHeightInViewCoordinates);
+}
+
 - (BOOL)keyboardXShow {
     return _keyboardWillShow || _keyboardDidShow;
 }

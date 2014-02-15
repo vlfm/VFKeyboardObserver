@@ -16,6 +16,14 @@
     textFieldDate.inputView = [UIDatePicker new];
 }
 
+- (BOOL)disablesAutomaticKeyboardDismissal {
+    return NO;
+}
+
+- (UIModalPresentationStyle)modalPresentationStyle {
+    return UIModalPresentationFormSheet;
+}
+
 - (IBAction)resignButtonTap:(id)sender {
     [self.view endEditing:YES];
 }
@@ -31,7 +39,12 @@
 - (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardWillShowWithProperties:(VFKeyboardProperties)keyboardProperties interfaceOrientationWillChange:(BOOL)interfaceOrientationWillChange {
     NSLog(@"KeyboardWillShowWithProperties: %@, interfaceOrientationWillChange: %@", NSStringFromVFKeyboardProperties(keyboardProperties), (interfaceOrientationWillChange ? @"YES" : @"NO"));
     
-    bottomConstraint.constant = keyboardProperties.frame.size.height;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        bottomConstraint.constant = keyboardProperties.frame.size.height;
+    } else {
+        CGRect keyboardFrameInViewCoordinates = [keyboardObserver keyboardFrameInViewCoordinates:self.view];
+        bottomConstraint.constant = keyboardFrameInViewCoordinates.size.height;
+    }
     
     [keyboardObserver animateWithKeyboardProperties:^{
         [self.view layoutIfNeeded];

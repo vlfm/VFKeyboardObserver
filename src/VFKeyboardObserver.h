@@ -59,6 +59,8 @@ NSString *NSStringFromVFKeyboardProperties(VFKeyboardProperties keyboardProperti
 - (void)animateWithKeyboardProperties:(void(^)())animations;
 - (void)animateWithKeyboardProperties:(void(^)())animations completion:(void (^)(BOOL finished))completion;
 
+- (CGRect)keyboardFrameInViewCoordinates:(UIView *)view;
+
 @end
 
 @protocol VFKeyboardObserverDelegate <NSObject>
