@@ -19,7 +19,7 @@
 #import <Foundation/Foundation.h>
 
 struct VFKeyboardProperties {
-    CGSize size;
+    CGRect frame;
     NSTimeInterval animationDuration;
     UIViewAnimationCurve animationCurve;
 };

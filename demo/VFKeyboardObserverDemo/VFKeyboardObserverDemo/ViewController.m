@@ -31,7 +31,7 @@
 - (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardWillShowWithProperties:(VFKeyboardProperties)keyboardProperties interfaceOrientationWillChange:(BOOL)interfaceOrientationWillChange {
     NSLog(@"KeyboardWillShowWithProperties: %@, interfaceOrientationWillChange: %@", NSStringFromVFKeyboardProperties(keyboardProperties), (interfaceOrientationWillChange ? @"YES" : @"NO"));
     
-    bottomConstraint.constant = keyboardProperties.size.height;
+    bottomConstraint.constant = keyboardProperties.frame.size.height;
     
     [keyboardObserver animateWithKeyboardProperties:^{
         [self.view layoutIfNeeded];

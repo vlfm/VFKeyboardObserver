@@ -18,7 +18,7 @@
 
 #import "VFKeyboardObserver.h"
 
-VFKeyboardProperties VFKeyboardPropertiesMake(CGSize size,
+VFKeyboardProperties VFKeyboardPropertiesMake(CGRect frame,
                                               NSTimeInterval animationDuration,
                                               UIViewAnimationCurve animationCurve);
 
@@ -207,31 +207,31 @@ VFKeyboardProperties VFKeyboardPropertiesMake(CGSize size,
 }
 
 - (void)updateKeyboardPropertiesWithNotification:(NSNotification *)notification {
-    CGSize size = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    CGRect frame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-        size = CGSizeMake(size.height, size.width);
+        frame = CGRectMake(frame.origin.y, frame.origin.x, frame.size.height, frame.size.width);
     }
     
     NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
-    _lastKeyboardProperties = VFKeyboardPropertiesMake(size, animationDuration, animationCurve);
+    _lastKeyboardProperties = VFKeyboardPropertiesMake(frame, animationDuration, animationCurve);
 }
 
 @end
 
-VFKeyboardProperties VFKeyboardPropertiesMake(CGSize size,
+VFKeyboardProperties VFKeyboardPropertiesMake(CGRect frame,
                                               NSTimeInterval animationDuration,
                                               UIViewAnimationCurve animationCurve) {
     VFKeyboardProperties keyboardProperties;
-    keyboardProperties.size = size;
+    keyboardProperties.frame = frame;
     keyboardProperties.animationDuration = animationDuration;
     keyboardProperties.animationCurve = animationCurve;
     return keyboardProperties;
 }
 
 NSString *NSStringFromVFKeyboardProperties(VFKeyboardProperties keyboardProperties) {
-    return [NSString stringWithFormat:@"VFKeyboardProperties (size: %@; animationDuration:%f; animationCurve:%d)",
-            NSStringFromCGSize(keyboardProperties.size),
+    return [NSString stringWithFormat:@"VFKeyboardProperties (frame: %@; animationDuration:%f; animationCurve:%d)",
+            NSStringFromCGRect(keyboardProperties.frame),
             keyboardProperties.animationDuration,
             keyboardProperties.animationCurve];
 }
