@@ -22,6 +22,9 @@ VFKeyboardProperties VFKeyboardPropertiesMake(CGRect frame,
                                               NSTimeInterval animationDuration,
                                               UIViewAnimationCurve animationCurve);
 
+CGRect KeyboardFrameInWindowCoordinatesConsideringOrientation(CGRect keyboardFrame);
+CGRect ViewFrameInWindowCoordinates(UIView *view);
+
 @implementation VFKeyboardObserver {
     NSHashTable *_delegates;
     BOOL _interfaceOrientationWillChange;
@@ -105,13 +108,7 @@ VFKeyboardProperties VFKeyboardPropertiesMake(CGRect frame,
         return CGRectZero;
     }
     
-    CGRect viewFrameInWindowCoordinates = [view convertRect:view.bounds toView:nil];
-    if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-        viewFrameInWindowCoordinates = CGRectMake(viewFrameInWindowCoordinates.origin.y,
-                                                  viewFrameInWindowCoordinates.origin.x,
-                                                  viewFrameInWindowCoordinates.size.height,
-                                                  viewFrameInWindowCoordinates.size.width);
-    }
+    CGRect viewFrameInWindowCoordinates = ViewFrameInWindowCoordinates(view);
     
     CGRect keyboardFrame = self.lastKeyboardProperties.frame;
     
@@ -228,9 +225,7 @@ VFKeyboardProperties VFKeyboardPropertiesMake(CGRect frame,
 
 - (void)updateKeyboardPropertiesWithNotification:(NSNotification *)notification {
     CGRect frame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-        frame = CGRectMake(frame.origin.y, frame.origin.x, frame.size.height, frame.size.width);
-    }
+    frame = KeyboardFrameInWindowCoordinatesConsideringOrientation(frame);
     
     NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
@@ -254,4 +249,51 @@ NSString *NSStringFromVFKeyboardProperties(VFKeyboardProperties keyboardProperti
             NSStringFromCGRect(keyboardProperties.frame),
             keyboardProperties.animationDuration,
             keyboardProperties.animationCurve];
+}
+
+CGRect KeyboardFrameInWindowCoordinatesConsideringOrientation(CGRect keyboardFrame) {
+    CGRect windowBounds = [UIApplication sharedApplication].keyWindow.bounds;
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    switch (orientation) {
+        case UIInterfaceOrientationPortrait: {
+            return keyboardFrame;
+        }
+        case UIInterfaceOrientationLandscapeLeft: {
+            return CGRectMake(keyboardFrame.origin.y, keyboardFrame.origin.x, keyboardFrame.size.height, keyboardFrame.size.width);
+        }
+        case UIInterfaceOrientationLandscapeRight: {
+            return CGRectMake(keyboardFrame.origin.y, windowBounds.size.width - keyboardFrame.size.width, keyboardFrame.size.height, keyboardFrame.size.width);
+        }
+        case UIInterfaceOrientationPortraitUpsideDown: {
+            keyboardFrame.origin.y = windowBounds.size.height - keyboardFrame.size.height;
+            return keyboardFrame;
+        }
+    }
+}
+
+CGRect ViewFrameInWindowCoordinates(UIView *view) {
+    CGRect viewFrame = [view convertRect:view.bounds toView:nil];
+    CGRect windowBounds = [UIApplication sharedApplication].keyWindow.bounds;
+    
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        viewFrame = CGRectMake(viewFrame.origin.y, viewFrame.origin.x, viewFrame.size.height, viewFrame.size.width);
+    }
+    
+    switch (orientation) {
+        case UIInterfaceOrientationPortrait:
+        case UIInterfaceOrientationLandscapeLeft: {
+            return viewFrame;
+        }
+        case UIInterfaceOrientationLandscapeRight: {
+            viewFrame.origin.y = windowBounds.size.width - viewFrame.origin.y - viewFrame.size.height;
+            return viewFrame;
+        }
+        case UIInterfaceOrientationPortraitUpsideDown: {
+            viewFrame.origin.y = windowBounds.size.height - viewFrame.origin.y - viewFrame.size.height;
+            return viewFrame;
+        }
+    }
 }

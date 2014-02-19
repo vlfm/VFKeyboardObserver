@@ -21,7 +21,10 @@
 }
 
 - (UIModalPresentationStyle)modalPresentationStyle {
-    return UIModalPresentationFormSheet;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return UIModalPresentationFormSheet;
+    }
+    return [super modalPresentationStyle];
 }
 
 - (IBAction)resignButtonTap:(id)sender {
