@@ -1,103 +1,29 @@
-VFKeyboardObserver
-==================
+# VFKeyboardObserver
 
-A keyboard observer: appear events and properties.
+[![CI Status](http://img.shields.io/travis/Valery Fomenko/VFKeyboardObserver.svg?style=flat)](https://travis-ci.org/Valery Fomenko/VFKeyboardObserver)
+[![Version](https://img.shields.io/cocoapods/v/VFKeyboardObserver.svg?style=flat)](http://cocoapods.org/pods/VFKeyboardObserver)
+[![License](https://img.shields.io/cocoapods/l/VFKeyboardObserver.svg?style=flat)](http://cocoapods.org/pods/VFKeyboardObserver)
+[![Platform](https://img.shields.io/cocoapods/p/VFKeyboardObserver.svg?style=flat)](http://cocoapods.org/pods/VFKeyboardObserver)
 
-Usage
-==
-1. Start / stop observing keyboard events.
-==
+## Example
 
-```objective-c
-[[VFKeyboardObserver sharedKeyboardObserver] start];
-[[VFKeyboardObserver sharedKeyboardObserver] stop];
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+VFKeyboardObserver is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "VFKeyboardObserver"
 ```
 
-2. Add / remove delegates
-==
+## Author
 
-Adopt to ```VFKeyboardObserverDelegate``` protocol and add an object as a delegate.
+Valery Fomenko, vlfm@yandex.ru
 
- VFKeyboardObserver can have any number of delegates. Delegates are not retained, they can be removed only for stop receiving delegate messages.
+## License
 
-```objective-c
-@protocol VFKeyboardObserverDelegate <NSObject>
-
-@optional
-
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardWillShowWithProperties:(VFKeyboardProperties)keyboardProperties interfaceOrientationWillChange:(BOOL)interfaceOrientationWillChange;
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardDidShowWithProperties:(VFKeyboardProperties)keyboardProperties;
-
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardWillHideWithProperties:(VFKeyboardProperties)keyboardProperties;
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardDidHideWithProperties:(VFKeyboardProperties)keyboardProperties;
-
-@end
-
-[[VFKeyboardObserver sharedKeyboardObserver] addDelegate:aDelegate];
-[[VFKeyboardObserver sharedKeyboardObserver] removeDelegate:aDelegate];
-```
-
-3. Update UI when keayboard appears / disappears
-==
-
-It is common to update UI when keyboard will appear / will disappear.
-
-```objective-c
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardWillShowWithProperties:(VFKeyboardProperties)keyboardProperties interfaceOrientationWillChange:(BOOL)interfaceOrientationWillChange {
-    [keyboardObserver animateWithKeyboardProperties:^{
-        // ...
-    }];
-}
-
-- (void)keyboardObserver:(VFKeyboardObserver *)keyboardObserver keyboardWillHideWithProperties:(VFKeyboardProperties)keyboardProperties {
-    [keyboardObserver animateWithKeyboardProperties:^{
-        // ...
-    }];
-}
-```
-
-VFKeyboardObserver have convenient method ```animateWithKeyboardProperties:``` that performs animations synched with keyboard animation.
-
-4. Rotation
-==
-
-If we animate our UI to adjust it to keyboard, for example, attach ```UITextField``` to the top of the keyboard, there is one problem when interface orientation changes. Our ```UITextField``` does not stay attached while the rotation of interface orientation is animated.
-See this for details: http://smnh.me/synchronizing-rotation-animation-between-the-keyboard-and-the-attached-view/
-
-To solve this problem, VFKeyboardObserver has ```interfaceOrientationWillChange``` method.
-Call it from UIViewController's ```willRotateToInterfaceOrientation:duration:```.
-
-```objective-c
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    
-    [[VFKeyboardObserver sharedKeyboardObserver] interfaceOrientationWillChange];
-}
-```
-
-In this case, (only while interface orientation changes):
-* ```VFKeyboardObserverDelegate``` will receive only two messages: keyboardWillShow and keyboardDidShow (hide methods will be ignored).
-* ```interfaceOrientationWillChange``` argument of ```keyboardWillShow``` delegate method will be YES, so in case of custom UI adjusting animations in this method, you can do it without animation
-* ```animateWithKeyboardProperties:```  methods automatically perform ```animations``` and ```completion``` blocks without animation (if you use it, no changes needed).
-
-5. Keyboard frame convertion
-==
-
-If ```UIViewController``` is presented not full screen, on ipad, for example, you may need to know keyboard frame in viewcontroller's view coordinates, not in UIWindow's. For this case, VFKeyboardObserver provides convenient convert method:
-
-```objective-c
-/* If keyboard visible (in will- or did- show state), returns keyboard frame converted to view coordinates,
-   otherwise returns zero rect */
-- (CGRect)keyboardFrameInViewCoordinates:(UIView *)view;
-```
-See example in the demo project:
-
-```objective-c
-if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-    bottomConstraint.constant = keyboardProperties.frame.size.height;
-} else {
-    CGRect keyboardFrameInViewCoordinates = [keyboardObserver keyboardFrameInViewCoordinates:self.view];
-    bottomConstraint.constant = keyboardFrameInViewCoordinates.size.height;
-}
-```
-
+VFKeyboardObserver is available under the MIT license. See the LICENSE file for more info.

@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'VFKeyboardObserver_Example' do
+  pod 'VFKeyboardObserver', :path => '../'
+
+  target 'VFKeyboardObserver_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
