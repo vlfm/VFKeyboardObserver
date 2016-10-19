@@ -45,8 +45,7 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         bottomConstraint.constant = keyboardProperties.frame.size.height;
     } else {
-        CGRect keyboardFrameInViewCoordinates = [keyboardObserver keyboardFrameInViewCoordinates:self.view];
-        bottomConstraint.constant = keyboardFrameInViewCoordinates.size.height;
+        bottomConstraint.constant = keyboardProperties.frame.size.height;
     }
     
     [keyboardObserver animateWithKeyboardProperties:^{
