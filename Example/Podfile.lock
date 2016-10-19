@@ -1,0 +1,16 @@
+PODS:
+  - VFKeyboardObserver (0.1.0)
+
+DEPENDENCIES:
+  - VFKeyboardObserver (from `../`)
+
+EXTERNAL SOURCES:
+  VFKeyboardObserver:
+    :path: ../
+
+SPEC CHECKSUMS:
+  VFKeyboardObserver: 9d6f1cdcd06a865590ba6cc83b1835c56db79f02
+
+PODFILE CHECKSUM: 0492863775c4fa9c14d4704cb72b13b5f3cfc819
+
+COCOAPODS: 1.0.1
