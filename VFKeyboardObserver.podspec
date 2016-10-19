@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'VFKeyboardObserver'
-  s.version          = '1.0.0'
+  s.version          = '1.2.0'
   s.summary          = 'A simple way to observe keyboard notifications and keyboard properties.'
   s.homepage         = 'https://github.com/vlfm/VFKeyboardObserver'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
