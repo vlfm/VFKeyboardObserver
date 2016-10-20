@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42A31CF0E2AE72560E23129E /* Pods_VFKeyboardObserver_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E02971A04D366498AAB511E7 /* Pods_VFKeyboardObserver_Tests.framework */; };
-		58052108BA97A8984E87121A /* Pods_VFKeyboardObserver_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D932CB579FAAFF628A63DB /* Pods_VFKeyboardObserver_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -23,6 +21,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		760FB37C1DB78D4400BCD7C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760FB3791DB78D4400BCD7C4 /* LaunchScreen.storyboard */; };
 		760FB37D1DB78D4400BCD7C4 /* VFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 760FB37B1DB78D4400BCD7C4 /* VFViewController.m */; };
+		762F6BF11DB8E42700464DD1 /* VFKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 762F6BF01DB8E42700464DD1 /* VFKeyboardObserver.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -38,9 +37,7 @@
 
 /* Begin PBXFileReference section */
 		25760B46346AE049DAF7EA86 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		48F3575471E816BF5F3288BE /* Pods-VFKeyboardObserver_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VFKeyboardObserver_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-VFKeyboardObserver_Example/Pods-VFKeyboardObserver_Example.release.xcconfig"; sourceTree = "<group>"; };
 		5564D5CEF3C4B1982A99CE53 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		5EC86C7DF05915F068B4B3B4 /* Pods-VFKeyboardObserver_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VFKeyboardObserver_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VFKeyboardObserver_Tests/Pods-VFKeyboardObserver_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* VFKeyboardObserver_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VFKeyboardObserver_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,15 +55,13 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		72D932CB579FAAFF628A63DB /* Pods_VFKeyboardObserver_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VFKeyboardObserver_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		760FB3791DB78D4400BCD7C4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		760FB37A1DB78D4400BCD7C4 /* VFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFViewController.h; sourceTree = "<group>"; };
 		760FB37B1DB78D4400BCD7C4 /* VFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFViewController.m; sourceTree = "<group>"; };
-		76A2EFAF883BDFD11131A400 /* Pods-VFKeyboardObserver_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VFKeyboardObserver_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VFKeyboardObserver_Example/Pods-VFKeyboardObserver_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		762F6BEF1DB8E42700464DD1 /* VFKeyboardObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VFKeyboardObserver.h; path = ../../VFKeyboardObserver/Classes/VFKeyboardObserver.h; sourceTree = "<group>"; };
+		762F6BF01DB8E42700464DD1 /* VFKeyboardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VFKeyboardObserver.m; path = ../../VFKeyboardObserver/Classes/VFKeyboardObserver.m; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A414DA66351C56A9F8506E95 /* VFKeyboardObserver.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VFKeyboardObserver.podspec; path = ../VFKeyboardObserver.podspec; sourceTree = "<group>"; };
-		E02971A04D366498AAB511E7 /* Pods_VFKeyboardObserver_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VFKeyboardObserver_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E14003D63F350539A50BAB3A /* Pods-VFKeyboardObserver_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VFKeyboardObserver_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VFKeyboardObserver_Tests/Pods-VFKeyboardObserver_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +72,6 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				58052108BA97A8984E87121A /* Pods_VFKeyboardObserver_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +82,6 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				42A31CF0E2AE72560E23129E /* Pods_VFKeyboardObserver_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +96,6 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				8191E8C5A5B3B78CD768BFAA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,8 +115,6 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				72D932CB579FAAFF628A63DB /* Pods_VFKeyboardObserver_Example.framework */,
-				E02971A04D366498AAB511E7 /* Pods_VFKeyboardObserver_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -138,6 +128,8 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				6003F59C195388D20070C39A /* VFAppDelegate.h */,
 				6003F59D195388D20070C39A /* VFAppDelegate.m */,
+				762F6BEF1DB8E42700464DD1 /* VFKeyboardObserver.h */,
+				762F6BF01DB8E42700464DD1 /* VFKeyboardObserver.m */,
 				760FB37A1DB78D4400BCD7C4 /* VFViewController.h */,
 				760FB37B1DB78D4400BCD7C4 /* VFViewController.m */,
 			);
@@ -185,17 +177,6 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		8191E8C5A5B3B78CD768BFAA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				76A2EFAF883BDFD11131A400 /* Pods-VFKeyboardObserver_Example.debug.xcconfig */,
-				48F3575471E816BF5F3288BE /* Pods-VFKeyboardObserver_Example.release.xcconfig */,
-				E14003D63F350539A50BAB3A /* Pods-VFKeyboardObserver_Tests.debug.xcconfig */,
-				5EC86C7DF05915F068B4B3B4 /* Pods-VFKeyboardObserver_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,12 +184,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "VFKeyboardObserver_Example" */;
 			buildPhases = (
-				FCE7734585B42BE083643E92 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				982D4E69D28EA7798E4021A4 /* [CP] Embed Pods Frameworks */,
-				0E1B88273D3DE0DF498C6F5A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -300,21 +278,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E1B88273D3DE0DF498C6F5A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VFKeyboardObserver_Example/Pods-VFKeyboardObserver_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4F9C848234241EDDB972F8CF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,21 +308,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		982D4E69D28EA7798E4021A4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VFKeyboardObserver_Example/Pods-VFKeyboardObserver_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E9B8FC388E1632E258842FC6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -375,21 +323,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VFKeyboardObserver_Tests/Pods-VFKeyboardObserver_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FCE7734585B42BE083643E92 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -397,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				762F6BF11DB8E42700464DD1 /* VFKeyboardObserver.m in Sources */,
 				760FB37D1DB78D4400BCD7C4 /* VFViewController.m in Sources */,
 				6003F59E195388D20070C39A /* VFAppDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -516,7 +450,6 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76A2EFAF883BDFD11131A400 /* Pods-VFKeyboardObserver_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -533,7 +466,6 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48F3575471E816BF5F3288BE /* Pods-VFKeyboardObserver_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -550,7 +482,6 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E14003D63F350539A50BAB3A /* Pods-VFKeyboardObserver_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -574,7 +505,6 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5EC86C7DF05915F068B4B3B4 /* Pods-VFKeyboardObserver_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

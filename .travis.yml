@@ -1,3 +1,2 @@
 language: objective-c
-xcode_workspace: Example/VFKeyboardObserver.xcworkspace
-podfile: Example/Podfile
+xcode_project: Example/VFKeyboardObserver.xcodeproj
